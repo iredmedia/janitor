@@ -39,13 +39,13 @@ class CleanViews extends AbstractAnalyzerCommand
     /**
      * Execute the command.
      */
-    public function fire()
+    public function handle()
     {
         // Configure Analyzer
         $views = $this->laravel['config']['view.paths'][0];
         $this->analyzer->setFiles($views, ['php', 'twig']);
 
-        parent::fire();
+        parent::handle();
 
         // Remove if asked
         if ($this->option('delete')) {

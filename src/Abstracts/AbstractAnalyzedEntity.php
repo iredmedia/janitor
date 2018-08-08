@@ -1,8 +1,8 @@
 <?php
 namespace Janitor\Abstracts;
 
-use Illuminate\Support\Contracts\ArrayableInterface;
-use Illuminate\Support\Contracts\JsonableInterface;
+use Illuminate\Contracts\Support\Arrayable as ArrayableInterface;
+use Illuminate\Contracts\Support\Jsonable as JsonableInterface;
 use Janitor\UsageNeedle;
 use JsonSerializable;
 

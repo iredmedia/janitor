@@ -129,9 +129,9 @@ abstract class AbstractAnalyzer
         $finder     = $finder->files()->in($folder)->name('/\.('.$extensions.')/');
 
         // Set ignored patterns
-        foreach ($this->codebase->getIgnored() as $pattern) {
-            $finder = $finder->notPath($pattern)->notName($pattern);
-        }
+        if($ignored = $this->codebase->getIgnored())
+            foreach ($this->codebase->getIgnored() as $pattern)
+                $finder = $finder->notPath($pattern)->notName($pattern);
 
         // Wrap into Collection
         $files = iterator_to_array($finder);

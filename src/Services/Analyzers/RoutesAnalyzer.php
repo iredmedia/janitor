@@ -54,7 +54,7 @@ class RoutesAnalyzer extends AbstractAnalyzer implements AnalyzerInterface
 
         /** @type \Illuminate\Routing\Route $route */
         foreach ($this->routes as $route) {
-            $name   = $route->getMethods()[0].' '.$route->getUri();
+            $name   = $route->methods()[0].' '.$route->uri();
             $entity = new Route($this->folder, $name);
             $entity->setRoute($route);
 

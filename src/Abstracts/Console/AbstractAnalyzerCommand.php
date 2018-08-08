@@ -21,7 +21,7 @@ abstract class AbstractAnalyzerCommand extends Command
     /**
      * Execute the command.
      */
-    public function fire()
+    public function handle()
     {
         $this->analyzer->setOutput($this->output);
         $this->analyzer->analyze();

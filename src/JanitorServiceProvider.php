@@ -21,7 +21,7 @@ class JanitorServiceProvider extends ServiceProvider
         $this->registerCoreClasses();
         $this->registerJanitorClasses();
 
-        if ($this->app->bound('artisan')) {
+        if ($this->app->runningInConsole()) {
             $this->commands([
                 'Janitor\Console\Commands\CleanViews',
                 'Janitor\Console\Commands\CleanRoutes',
@@ -49,7 +49,8 @@ class JanitorServiceProvider extends ServiceProvider
             return new CacheManager($app);
         });
 
-        $this->app->config->package('anahkiasen/janitor', __DIR__.'/../config');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'anahkiasen/janitor');
+//        $this->app->config->package('anahkiasen/janitor', __DIR__.'/../config');
     }
 
     /**
